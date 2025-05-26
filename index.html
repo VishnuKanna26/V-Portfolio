@@ -14,6 +14,14 @@
             --dark: #0f172a;
             --light: #e5e7eb;
             --accent: #10b981;
+            
+            /* Light theme variables */
+            --bg-light: #ffffff;
+            --text-light: #1f2937;
+            --card-bg-light: #f3f4f6;
+            --border-light: #e5e7eb;
+            --section-bg-light: #f9fafb;
+            --hover-bg-light: #e5e7eb;
         }
         
         body {
@@ -21,6 +29,197 @@
             background-color: var(--dark);
             color: var(--light);
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Light theme styles */
+        body.light-theme {
+            background-color: var(--bg-light);
+            color: var(--text-light);
+        }
+        
+        body.light-theme .navbar {
+            background: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        body.light-theme .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.light-theme .nav-link {
+            color: var(--text-light);
+        }
+        
+        body.light-theme .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        body.light-theme .section {
+            background-color: var(--section-bg-light);
+        }
+        
+        body.light-theme .section:nth-child(even) {
+            background-color: var(--bg-light);
+        }
+        
+        body.light-theme .card {
+            background: var(--card-bg-light);
+            border: 1px solid var(--border-light);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        body.light-theme .card:hover {
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.light-theme .skill-badge {
+            background: var(--card-bg-light);
+            color: var(--text-light);
+            border: 1px solid var(--border-light);
+        }
+        
+        body.light-theme .skill-badge:hover {
+            background: var(--hover-bg-light);
+            border-color: var(--primary);
+        }
+        
+        body.light-theme .form-input {
+            background: rgba(243, 244, 246, 0.5);
+            border: 1px solid var(--border-light);
+            color: var(--text-light);
+        }
+        
+        body.light-theme .form-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        body.light-theme .section-title {
+            color: var(--text-light);
+        }
+        
+        body.light-theme .text-gray-300 {
+            color: var(--text-light);
+        }
+        
+        body.light-theme .text-gray-400 {
+            color: #4b5563;
+        }
+        
+        body.light-theme .text-gray-500 {
+            color: #6b7280;
+        }
+        
+        body.light-theme .hero-section {
+            background: linear-gradient(135deg, #f3f4f6, #ffffff, #f3f4f6);
+            position: relative;
+        }
+        
+        body.light-theme .hero-interactive-bg {
+            opacity: 0.4;
+            background: 
+                radial-gradient(circle at center, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 50%);
+        }
+        
+        body.light-theme .hero-particle {
+            background: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+            backdrop-filter: blur(2px);
+        }
+        
+        body.light-theme .hero-particle:nth-child(3n+1) {
+            background: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
+        }
+        
+        body.light-theme .hero-particle:nth-child(3n+2) {
+            background: rgba(236, 72, 153, 0.3);
+            box-shadow: 0 0 25px rgba(236, 72, 153, 0.4);
+        }
+        
+        body.light-theme .hero-particle:nth-child(3n+3) {
+            background: rgba(16, 185, 129, 0.3);
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
+        }
+        
+        body.light-theme .hero-particle:hover {
+            transform: scale(2);
+            filter: brightness(1.2);
+        }
+        
+        body.light-theme .btn-glow {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        body.light-theme .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        body.light-theme .timeline-item::before {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+        
+        body.light-theme .timeline-item::after {
+            background: rgba(59, 130, 246, 0.2);
+        }
+        
+        body.light-theme .profile-img-container {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.light-theme .profile-img-container::before {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(236, 72, 153, 0.1));
+        }
+        
+        body.light-theme .bg-gray-800 {
+            background-color: var(--card-bg-light);
+        }
+        
+        body.light-theme .bg-gray-900 {
+            background-color: var(--section-bg-light);
+        }
+        
+        body.light-theme .bg-gray-950 {
+            background-color: var(--card-bg-light);
+        }
+        
+        body.light-theme .footer {
+            background-color: var(--section-bg-light);
+            border-top: 1px solid var(--border-light);
+        }
+        
+        /* Theme toggle button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 50;
+            background: var(--primary);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        body.light-theme .theme-toggle {
+            background: var(--secondary);
+            box-shadow: 0 4px 12px rgba(236, 72, 153, 0.2);
         }
         
         /* Modern navbar with glass morphism */
@@ -472,6 +671,68 @@
             .hero-subtitle {
                 font-size: 1.2rem;
             }
+        }
+
+        /* Add these new styles for light theme headings */
+        body.light-theme .hero-title,
+        body.light-theme .hero-subtitle,
+        body.light-theme h1,
+        body.light-theme h2,
+        body.light-theme h3,
+        body.light-theme h4,
+        body.light-theme .section-title {
+            color: #111827; /* Darker text for better contrast */
+        }
+
+        body.light-theme .section-title {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+        }
+
+        body.light-theme .text-white {
+            color: #111827 !important;
+        }
+
+        body.light-theme .text-gray-200 {
+            color: #374151 !important;
+        }
+
+        body.light-theme .text-gray-300 {
+            color: #4B5563 !important;
+        }
+
+        body.light-theme .text-gray-400 {
+            color: #6B7280 !important;
+        }
+
+        body.light-theme .text-gray-500 {
+            color: #9CA3AF !important;
+        }
+
+        body.light-theme .text-blue-400 {
+            color: #2563EB !important;
+        }
+
+        body.light-theme .text-pink-400 {
+            color: #DB2777 !important;
+        }
+
+        body.light-theme .text-green-400 {
+            color: #059669 !important;
+        }
+
+        body.light-theme .text-purple-400 {
+            color: #7C3AED !important;
+        }
+
+        body.light-theme .text-yellow-400 {
+            color: #D97706 !important;
+        }
+
+        body.light-theme .text-indigo-400 {
+            color: #4F46E5 !important;
         }
     </style>
 </head>
@@ -1118,6 +1379,11 @@
         </div>
     </footer>
 
+    <!-- Add this before the closing body tag -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+    </button>
+
     <script>
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -1230,7 +1496,7 @@ const createHeroParticle = (e) => {
     const particle = document.createElement('div');
     particle.classList.add('hero-particle');
     
-    // Size between 5px and 12px (larger particles)
+    // Size between 5px and 12px
     const size = Math.random() * 7 + 5;
     particle.style.width = `${size}px`;
     particle.style.height = `${size}px`;
@@ -1449,6 +1715,30 @@ setInterval(() => {
             input.addEventListener('blur', () => {
                 input.parentElement.style.transform = 'scale(1)';
             });
+        });
+
+        // Add this to your existing script
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.body.classList.add('light-theme');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            
+            // Update icon
+            if (document.body.classList.contains('light-theme')) {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
         });
     </script>
 </body>
