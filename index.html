@@ -3,62 +3,613 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishnu Vardhan Kanna Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Vishnu Vardhan Kanna | Data Science Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #ec4899;
+            --dark: #0f172a;
+            --light: #e5e7eb;
+            --accent: #10b981;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        /* Modern navbar with glass morphism */
+        .navbar {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .navbar.scrolled {
+            background: rgba(15, 23, 42, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Section styling */
+        .section {
+            position: relative;
+            overflow: hidden;
+            scroll-margin-top: 100px;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 10%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 90%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* Modern card design with gradient border */
+        .card {
+            background: linear-gradient(145deg, #1e293b, #1a2535);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            padding: 1px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+        
+        .card:hover::before {
+            opacity: 1;
+        }
+        
+        /* Hero section with interactive particle background */
+.hero-section {
+    background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a); /* Richer gradient with three colors */
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-interactive-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.5;
+    pointer-events: none;
+    background: 
+        radial-gradient(circle at center, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.hero-particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    pointer-events: none;
+    transform: translateY(0);
+    animation: float-up 8s linear infinite;
+    filter: blur(1px);
+    z-index: 1;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+.hero-particle:nth-child(3n+1) {
+    background: rgba(59, 130, 246, 0.95); /* Brighter blue */
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.7);
+}
+
+.hero-particle:nth-child(3n+2) {
+    background: rgba(236, 72, 153, 0.95); /* Brighter pink */
+    box-shadow: 0 0 25px rgba(236, 72, 153, 0.7);
+}
+
+.hero-particle:nth-child(3n+3) {
+    background: rgba(16, 185, 129, 0.95); /* Brighter green */
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.7);
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(100%) translateX(0) scale(1) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.95;
+        transform: translateY(80%) translateX(10px) scale(1.3) rotate(45deg);
+    }
+    50% {
+        transform: translateY(40%) translateX(-10px) scale(0.9) rotate(-45deg);
+    }
+    90% {
+        opacity: 0.95;
+        transform: translateY(0%) translateX(10px) scale(1.2) rotate(45deg);
+    }
+    100% {
+        transform: translateY(-20%) translateX(20px) scale(1) rotate(0deg);
+        opacity: 0;
+    }
+}
+
+/* Add hover effect for particles */
+.hero-particle:hover {
+    transform: scale(2);
+    filter: brightness(1.3);
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+        
+        /* Skill badges with 3D effect */
+        .skill-badge {
+            background: linear-gradient(145deg, #1e293b, #1a2535);
+            color: var(--light);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 15px;
+            margin: 8px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+        }
+        
+        .skill-badge:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+            background: linear-gradient(145deg, #23324b, #1e2a3d);
+        }
+        
+        .skill-badge::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: 0.5s;
+        }
+        
+        .skill-badge:hover::after {
+            left: 100%;
+        }
+        
+        /* Project images with hover effect */
+        .project-img {
+            border-radius: 12px;
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: brightness(0.9) saturate(0.8);
+        }
+        
+        .card:hover .project-img {
+            filter: brightness(1) saturate(1.1);
+            transform: scale(1.03);
+        }
+        
+        /* Navigation links with animated underline */
+        .nav-link {
+            position: relative;
+            color: var(--light);
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        
+        /* Glowing button effect */
+        .btn-glow {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border-radius: 50px;
+            padding: 12px 24px;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 30px rgba(236, 72, 153, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.6s;
+            z-index: -1;
+        }
+        
+        .btn-glow:hover::before {
+            left: 100%;
+        }
+        
+        /* Scroll reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Section title styling */
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+        
+        /* Icon hover effects */
+        .icon-glow {
+            transition: all 0.3s ease;
+        }
+        
+        .icon-glow:hover {
+            color: var(--primary);
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+        }
+        
+        /* Profile image container */
+        .profile-img-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .profile-img-container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(236, 72, 153, 0.2));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+        
+        .profile-img-container:hover::before {
+            opacity: 1;
+        }
+        
+        .profile-img {
+            transition: transform 0.5s ease;
+        }
+        
+        .profile-img-container:hover .profile-img {
+            transform: scale(1.05);
+        }
+        
+        /* Timeline for education */
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            z-index: 1;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 21px;
+            width: 2px;
+            height: calc(100% - 16px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        /* Contact form styling */
+        .form-input {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px 16px;
+            width: 100%;
+            color: white;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+            background: rgba(30, 41, 59, 0.7);
+        }
+        
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            opacity: 0.6;
+            pointer-events: none;
+            animation: float 8s ease-in-out infinite;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
-<body>
+<body class="antialiased">
+    <!-- Floating particles background -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
+
     <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-content">
-            <div class="logo">Portfolio</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <nav class="navbar fixed top-0 w-full z-50 py-4 px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-white flex items-center">
+                <i class="fas fa-code mr-2 text-blue-400"></i> Vishnu Vardhan Kanna
+            </a>
+            
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 mt-4 py-4 rounded-lg">
+            <div class="flex flex-col space-y-3 px-6">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="section">
-        <div class="home-content">
-            <h1>Hi, I'm <span class="highlight">Vishnu Vardhan Kanna</span></h1>
-            <h2>Aspiring Data Analyst | ML Enthusiast</h2>
-            <p>Learning to turn complex data into smart, impactful insights.</p>
-            <div class="social-links">
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-github"></i>
+    <section id="home" class="section min-h-screen flex items-center justify-center hero-section">
+        <!-- Interactive background particles -->
+        <div class="hero-interactive-bg" id="hero-particles"></div>
+        
+        <!-- Animated circles -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-20 left-10 w-40 h-40 rounded-full bg-blue-500 opacity-10 filter blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-60 h-60 rounded-full bg-pink-500 opacity-10 filter blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 text-center hero-content reveal z-10">
+            <h1 class="hero-title text-4xl md:text-6xl font-bold mb-4 text-white">
+                Vishnu Vardhan Kanna
+            </h1>
+            <p class="hero-subtitle text-xl md:text-2xl mb-8 text-gray-200">
+                Data Science Specialist | Python Developer | AI Enthusiast
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#projects" class="btn-glow text-white px-8 py-3 rounded-full font-semibold inline-flex items-center">
+                    <i class="fas fa-laptop-code mr-2"></i> View My Work
                 </a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-linkedin"></i>
+                <a href="#contact" class="bg-gray-800 hover:bg-gray-700 text-white px-8 py-3 rounded-full font-semibold inline-flex items-center transition-all duration-300">
+                    <i class="fas fa-paper-plane mr-2"></i> Contact Me
+                </a>
+            </div>
+            
+            <div class="mt-16 animate-bounce">
+                <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">
+                    <i class="fas fa-chevron-down text-2xl"></i>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section">
-        <div class="section-content">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <p>I am an aspiring Data Analyst currently developing strong skills in Python, SQL, and data visualization tools. I'm passionate about using data to uncover insights and support better decision-making.</p>
-                <p>I'm also exploring machine learning and deep learning, with a growing interest in areas like predictive modeling and natural language processing. My goal is to build a career that combines analytical thinking with real-world impact.</p>
-                <div class="about-actions">
-                    <a href="resume.pdf" class="resume-btn" download>
-                        <i class="fas fa-download"></i> Download Resume
-                    </a>
-                    <div class="social-links">
-                        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
+    <section id="about" class="section py-20 relative">
+        <div class="max-w-7xl mx-auto px-6 reveal">
+            <h2 class="text-4xl font-bold text-center mb-16 text-white section-title">
+                About Me
+            </h2>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/3 profile-img-container">
+                    <img src="images/profile pic.jpg" alt="Vishnu Vardhan Kanna" class="profile-img w-full h-auto">
+                </div>
+                
+                <div class="lg:w-2/3">
+                    <h3 class="text-2xl font-semibold mb-6 text-white">
+                        <span class="text-blue-400">Hello!</span> I'm Vishnu Vardhan Kanna
+                    </h3>
+                    
+                    <div class="space-y-4 text-gray-300">
+                        <p>
+                            <i class="fas fa-chevron-right text-blue-400 mr-2"></i> I'm a passionate <span class="text-blue-400 font-medium">Data Science student</span> with expertise in Python, SQL, and data visualization tools like Power BI and Tableau.
+                        </p>
+                        <p>
+                            <i class="fas fa-chevron-right text-blue-400 mr-2"></i> Currently pursuing my <span class="text-blue-400 font-medium">B.Tech in Computer Science (Data Science)</span> at B V Raju Institute Of Technology with an impressive CGPA of 8.9/10.
+                        </p>
+                        <p>
+                            <i class="fas fa-chevron-right text-blue-400 mr-2"></i> My academic journey includes outstanding achievements like <span class="text-blue-400 font-medium">98.2% in Intermediate</span> and a perfect <span class="text-blue-400 font-medium">10/10 GPA in High School</span>.
+                        </p>
+                        <p>
+                            <i class="fas fa-chevron-right text-blue-400 mr-2"></i> I specialize in transforming complex data into <span class="text-blue-400 font-medium">actionable insights</span> through interactive dashboards and machine learning models.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-gray-800 p-4 rounded-lg text-center">
+                            <div class="text-blue-400 text-2xl mb-2">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h4 class="font-semibold text-white">Education</h4>
+                            <p class="text-sm text-gray-400">B.Tech in CS (DS)</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg text-center">
+                            <div class="text-blue-400 text-2xl mb-2">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <h4 class="font-semibold text-white">Projects</h4>
+                            <p class="text-sm text-gray-400">10+ Completed</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg text-center">
+                            <div class="text-blue-400 text-2xl mb-2">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h4 class="font-semibold text-white">Experience</h4>
+                            <p class="text-sm text-gray-400">2+ Years</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg text-center">
+                            <div class="text-blue-400 text-2xl mb-2">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h4 class="font-semibold text-white">Achievements</h4>
+                            <p class="text-sm text-gray-400">5+ Awards</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -66,198 +617,839 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="section-content">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fas fa-database"></i>
-                    <h3>Data Analytics</h3>
+    <section id="skills" class="section py-20 bg-gray-900 relative">
+        <div class="max-w-7xl mx-auto px-6 reveal">
+            <h2 class="text-4xl font-bold text-center mb-16 text-white section-title">
+                My Skills
+            </h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- Technical Skills -->
+                <div class="mb-16">
+                    <h3 class="text-2xl font-semibold mb-8 text-white flex items-center">
+                        <i class="fas fa-laptop-code text-blue-400 mr-3"></i> Technical Skills
+                    </h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="text-lg font-medium text-white mb-4">Programming Languages</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <div class="skill-badge">
+                                    <i class="fab fa-python mr-2"></i> Python
+                                </div>
+                                <div class="skill-badge">
+                                    <i class="fas fa-database mr-2"></i> SQL
+                                </div>
+                                <div class="skill-badge">
+                                    <i class="fab fa-js-square mr-2"></i> JavaScript
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-medium text-white mb-4">Data Science & Analytics</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <div class="skill-badge">
+                                    <i class="fas fa-chart-line mr-2"></i> Pandas
+                                </div>
+                                <div class="skill-badge">
+                                    <i class="fas fa-brain mr-2"></i> NumPy
+                                </div>
+                                <div class="skill-badge">
+                                    <i class="fas fa-project-diagram mr-2"></i> Scikit-learn
+                                </div>
+                                <div class="skill-badge">
+                                    <i class="fas fa-chart-bar mr-2"></i> Power BI
+                                </div>
+                                <div class="skill-badge">
+                                    <i class="fas fa-chart-pie mr-2"></i> Tableau
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-medium text-white mb-4">Web Development</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <div class="skill-badge">
+                                    <i class="fab fa-react mr-2"></i> React
+                                </div>
+                                <div class="skill-badge">
+                                    <i class="fab fa-node-js mr-2"></i> Node.js
+                                </div>
+                                <div class="skill-badge">
+                                    <i class="fas fa-server mr-2"></i> Express
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="skill-card">
-                    <i class="fab fa-python"></i>
-                    <h3>Python</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-database"></i>
-                    <h3>SQL</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-file-excel"></i>
-                    <h3>Excel</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Power BI</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-chart-bar"></i>
-                    <h3>Tableau</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-brain"></i>
-                    <h3>Machine Learning</h3>
+                
+                <!-- Professional Skills -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-8 text-white flex items-center">
+                        <i class="fas fa-user-cog text-blue-400 mr-3"></i> Professional Skills
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Data Analysis -->
+                        <div class="card p-6 hover:transform hover:scale-[1.02] transition-transform duration-300">
+                            <div class="flex items-start">
+                                <div class="bg-blue-500 bg-opacity-20 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-chart-line text-blue-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white mb-2">Data Analysis</h4>
+                                    <p class="text-gray-300 text-sm">Expert in extracting insights from complex datasets using Python, SQL, and statistical methods.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Machine Learning -->
+                        <div class="card p-6 hover:transform hover:scale-[1.02] transition-transform duration-300">
+                            <div class="flex items-start">
+                                <div class="bg-green-500 bg-opacity-20 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-brain text-green-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white mb-2">Machine Learning</h4>
+                                    <p class="text-gray-300 text-sm">Skilled in developing predictive models using scikit-learn, TensorFlow, and PyTorch.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Data Visualization -->
+                        <div class="card p-6 hover:transform hover:scale-[1.02] transition-transform duration-300">
+                            <div class="flex items-start">
+                                <div class="bg-purple-500 bg-opacity-20 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-chart-bar text-purple-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white mb-2">Data Visualization</h4>
+                                    <p class="text-gray-300 text-sm">Proficient in creating impactful visualizations with Power BI, Tableau, and Matplotlib.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Problem Solving -->
+                        <div class="card p-6 hover:transform hover:scale-[1.02] transition-transform duration-300">
+                            <div class="flex items-start">
+                                <div class="bg-yellow-500 bg-opacity-20 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-puzzle-piece text-yellow-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white mb-2">Problem Solving</h4>
+                                    <p class="text-gray-300 text-sm">Strong analytical skills with a track record of solving complex technical challenges.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Communication -->
+                        <div class="card p-6 hover:transform hover:scale-[1.02] transition-transform duration-300">
+                            <div class="flex items-start">
+                                <div class="bg-pink-500 bg-opacity-20 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-comments text-pink-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white mb-2">Communication</h4>
+                                    <p class="text-gray-300 text-sm">Effective at explaining technical concepts to both technical and non-technical audiences.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Team Collaboration -->
+                        <div class="card p-6 hover:transform hover:scale-[1.02] transition-transform duration-300">
+                            <div class="flex items-start">
+                                <div class="bg-indigo-500 bg-opacity-20 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-users text-indigo-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-white mb-2">Team Collaboration</h4>
+                                    <p class="text-gray-300 text-sm">Experienced in agile environments and cross-functional team projects.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="section-content">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Customer Churn Prediction</h3>
-                    <p>Developed a machine learning model to predict customer churn with 85% accuracy using Python and scikit-learn.</p>
-                    <div class="tech-tags">
-                        <span>Python</span>
-                        <span>Scikit-learn</span>
-                        <span>Pandas</span>
+    <section id="projects" class="section py-20 relative">
+        <div class="max-w-7xl mx-auto px-6 reveal">
+            <h2 class="text-4xl font-bold text-center mb-16 text-white section-title">
+                My Projects
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="card p-6 relative group">
+                    <div class="overflow-hidden rounded-lg mb-4">
+                        <img src="images/pw.jpg" alt="ProdWell" class="project-img w-full">
                     </div>
-                    <button class="view-project">View Project</button>
-                </div>
-                <div class="project-card">
-                    <h3>Sales Analytics Dashboard</h3>
-                    <p>Created an interactive Power BI dashboard for sales performance analysis and forecasting.</p>
-                    <div class="tech-tags">
-                        <span>Power BI</span>
-                        <span>DAX</span>
-                        <span>SQL</span>
+                    <div class="flex items-center mb-2">
+                        <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white mr-3">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">ProdWell Analytics</h3>
                     </div>
-                    <button class="view-project">View Project</button>
-                </div>
-                <div class="project-card">
-                    <h3>NLP Sentiment Analysis</h3>
-                    <p>Built a sentiment analysis model for customer reviews using natural language processing techniques.</p>
-                    <div class="tech-tags">
-                        <span>Python</span>
-                        <span>NLTK</span>
-                        <span>TensorFlow</span>
+                    <p class="text-gray-300 mb-4">A productivity tracking dashboard with real-time analytics and wellness recommendations powered by machine learning.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">React</span>
+                        <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Node.js</span>
+                        <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">MongoDB</span>
+                        <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Python</span>
                     </div>
-                    <button class="view-project">View Project</button>
+                    <div class="flex justify-between items-center">
+                        <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
                 </div>
+                
+                <!-- Project 2 -->
+                <div class="card p-6 relative group">
+                    <div class="overflow-hidden rounded-lg mb-4">
+                        <img src="images/emo.jpg" alt="EmojifyMe" class="project-img w-full">
+                    </div>
+                    <div class="flex items-center mb-2">
+                        <div class="w-10 h-10 rounded-full bg-pink-500 flex items-center justify-center text-white mr-3">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">EmojifyMe NLP</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4">Natural language processing application that enhances text with contextual emojis using advanced sentiment analysis.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Python</span>
+                        <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">NLTK</span>
+                        <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">spaCy</span>
+                        <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Streamlit</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="card p-6 relative group">
+                    <div class="overflow-hidden rounded-lg mb-4">
+                        <img src="images/dv.jpg" alt="DataViz" class="project-img w-full">
+                    </div>
+                    <div class="flex items-center mb-2">
+                        <div class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white mr-3">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Interactive DataViz</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4">Dynamic data visualization platform with real-time updates and customizable dashboards for business intelligence.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Power BI</span>
+                        <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Tableau</span>
+                        <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Python</span>
+                        <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">SQL</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium">
+                    View All Projects <i class="fas fa-arrow-right ml-2"></i>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Achievements Section -->
-    <section id="achievements" class="section">
-        <div class="section-content">
-            <h2 class="section-title">Achievements</h2>
-            <div class="achievements-grid">
-                <div class="achievement-card">
-                    <i class="fas fa-star"></i>
-                    <h3>10th Grade</h3>
-                    <p>Achieved a perfect 10 GPA</p>
-                    <p>Board of Secondary Education | 2020</p>
+    <!-- Education Section -->
+    <section id="education" class="section py-20 bg-gray-900 relative">
+        <div class="max-w-7xl mx-auto px-6 reveal">
+            <h2 class="text-4xl font-bold text-center mb-16 text-white section-title">
+                Education
+            </h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- Education Timeline -->
+                <div class="space-y-8">
+                    <!-- Current Education -->
+                    <div class="timeline-item">
+                        <div class="card p-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-blue-500 bg-opacity-20 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-university text-blue-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-white">B.Tech in Computer Science (Data Science)</h3>
+                                    <p class="text-gray-400">B V Raju Institute Of Technology, Narsapur, Telangana</p>
+                                    <p class="text-gray-300 mt-2"><span class="font-medium">2022 - Present</span> | CGPA: 8.9/10 (Up to 5th Semester)</p>
+                                    <p class="text-gray-300 mt-2">Specialized coursework in Machine Learning, Data Mining, Big Data Analytics, and Artificial Intelligence.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Intermediate -->
+                    <div class="timeline-item">
+                        <div class="card p-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-pink-500 bg-opacity-20 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-school text-pink-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-white">Intermediate (12th Grade)</h3>
+                                    <p class="text-gray-400">Excellencia Junior College, Hyderabad, Telangana</p>
+                                    <p class="text-gray-300 mt-2"><span class="font-medium">2020 - 2022</span> | Percentage: 98.2%</p>
+                                    <p class="text-gray-300 mt-2">Specialized in Mathematics, Physics, and Chemistry with a focus on competitive exams.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- High School -->
+                    <div class="timeline-item">
+                        <div class="card p-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-green-500 bg-opacity-20 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-school text-green-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-white">High School (10th Grade)</h3>
+                                    <p class="text-gray-400">Presidency High School, Nizamabad, Telangana</p>
+                                    <p class="text-gray-300 mt-2"><span class="font-medium">2020</span> | GPA: 10/10</p>
+                                    <p class="text-gray-300 mt-2">Secured perfect score with distinction in all subjects.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="achievement-card">
-                    <i class="fas fa-medal"></i>
-                    <h3>Intermediate</h3>
-                    <p>Scored 98.2%</p>
-                    <p>Board of Intermediate Education | 2022</p>
-                </div>
-                <div class="achievement-card">
-                    <i class="fas fa-trophy"></i>
-                    <h3>NPTEL Python</h3>
-                    <p>Scored 90%, Topper in the course</p>
-                    <p>Offered by NPTEL & IIT | 2023</p>
-                </div>
-                <div class="achievement-card">
-                    <i class="fas fa-certificate"></i>
-                    <h3>Crio.Do Certification</h3>
-                    <p>Full Stack Data Analytics Program</p>
-                    <p>Ongoing | 2025</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications" class="section">
-        <div class="section-content">
-            <h2 class="section-title">Certifications</h2>
-            <div class="certifications-list">
-                <div class="certification-item">
-                    <h3>ChatGPT and AI in Microsoft Excel</h3>
-                    <p>Skill Nation | 2025</p>
-                </div>
-                <div class="certification-item">
-                    <h3>EF SET English Certificate</h3>
-                    <p>Score: 70/100 (C1, Advanced Level) | 2024</p>
-                </div>
-                <div class="certification-item">
-                    <h3>Infosys Springboard DBMS Certification</h3>
-                    <p>Successfully completed DBMS | 2024</p>
-                </div>
-                <div class="certification-item">
-                    <h3>NPTEL Python Certification</h3>
-                    <p>Score: 90/100, Topper Award | 2023</p>
+                
+                <!-- Certifications -->
+                <div class="mt-16">
+                    <h3 class="text-2xl font-semibold mb-6 text-white flex items-center">
+                        <i class="fas fa-certificate text-blue-400 mr-3"></i> Certifications
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="card p-6 flex items-start">
+                            <div class="flex-shrink-0 bg-purple-500 bg-opacity-20 p-3 rounded-lg mr-4">
+                                <i class="fas fa-laptop-code text-purple-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-white">Data Science Professional Certificate</h4>
+                                <p class="text-gray-400">Coursera | 2023</p>
+                                <p class="text-gray-300 mt-2">Completed comprehensive training in Python, Machine Learning, and Data Visualization.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card p-6 flex items-start">
+                            <div class="flex-shrink-0 bg-yellow-500 bg-opacity-20 p-3 rounded-lg mr-4">
+                                <i class="fas fa-chart-line text-yellow-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-white">Tableau Data Analyst</h4>
+                                <p class="text-gray-400">Tableau | 2022</p>
+                                <p class="text-gray-300 mt-2">Certified in creating interactive dashboards and advanced data visualizations.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="section-content">
-            <h2 class="section-title">Contact Me</h2>
-            <div class="contact-container">
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                        <span class="error-message"></span>
+    <section id="contact" class="section py-20 relative">
+        <div class="max-w-7xl mx-auto px-6 reveal">
+            <h2 class="text-4xl font-bold text-center mb-16 text-white section-title">
+                Get In Touch
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-white">
+                        Let's Connect!
+                    </h3>
+                    
+                    <p class="text-gray-300 mb-8">
+                        I'm currently looking for new opportunities in data science and analytics. Whether you have a question, want to collaborate, or just want to say hi, I'll do my best to get back to you!
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-blue-500 bg-opacity-20 flex items-center justify-center text-blue-400 mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium">Email</h4>
+                                <a href="mailto:vishnukanna268@gmail.com" class="text-gray-400 hover:text-blue-400 transition-colors">vishnukanna268@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-pink-500 bg-opacity-20 flex items-center justify-center text-pink-400 mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium">Phone</h4>
+                                <a href="tel:+917416256847" class="text-gray-400 hover:text-blue-400 transition-colors">+91 7416256847</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-purple-500 bg-opacity-20 flex items-center justify-center text-purple-400 mr-4">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium">LinkedIn</h4>
+                                <a href="https://linkedin.com/in/kanna-vishnu-vardhan" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors">linkedin.com/in/kanna-vishnu-vardhan</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-600 bg-opacity-20 flex items-center justify-center text-gray-400 mr-4">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium">GitHub</h4>
+                                <a href="https://github.com/Vishnukanna26" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors">github.com/Vishnukanna26</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                        <span class="error-message"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                        <span class="error-message"></span>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-                <div class="contact-info">
-                    <h3>Connect with me</h3>
-                    <div class="social-links">
-                        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
+                    
+                    <div class="mt-8 flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-500 flex items-center justify-center text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-linkedin"></i>
-                            <span>LinkedIn</span>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-pink-500 flex items-center justify-center text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
                         </a>
                     </div>
+                </div>
+                
+                <div>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-white mb-2">Your Name</label>
+                            <input type="text" id="name" class="form-input" placeholder="John Doe">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-white mb-2">Your Email</label>
+                            <input type="email" id="email" class="form-input" placeholder="john@example.com">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-white mb-2">Subject</label>
+                            <input type="text" id="subject" class="form-input" placeholder="Project Inquiry">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-white mb-2">Your Message</label>
+                            <textarea id="message" rows="5" class="form-input" placeholder="Hello Vishnu, I'd like to discuss..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-glow text-white px-8 py-3 rounded-full font-semibold w-full">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Vishnu Vardhan Kanna. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-linkedin"></i>
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-950 text-center relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-center mb-6">
+                <a href="#home" class="text-2xl font-bold text-white flex items-center">
+                    <i class="fas fa-code text-blue-400 mr-2"></i> Vishnu Vardhan Kanna
                 </a>
             </div>
+            
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-gray-300 transition-colors">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-pink-400 transition-colors">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-blue-500 transition-colors">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+            </div>
+            
+            <p class="text-gray-500 text-sm">
+                © 2025 Vishnu Vardhan Kanna. All rights reserved.
+            </p>
+        </div>
+        
+        <!-- Animated circles in footer -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-blue-500 opacity-10 filter blur-3xl"></div>
+            <div class="absolute top-0 right-0 w-60 h-60 rounded-full bg-pink-500 opacity-10 filter blur-3xl"></div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-    <script src="script.js"></script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const revealPoint = 100;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initialize on load
+
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        const createParticle = () => {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Random size between 6px and 18px
+            const size = Math.random() * 12 + 6;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Random position
+            particle.style.left = `${Math.random() * 100}vw`;
+            
+            // Random animation duration between 3s and 7s
+            const duration = Math.random() * 4 + 3;
+            particle.style.animationDuration = `${duration}s`;
+            
+            // Random delay
+            particle.style.animationDelay = `${Math.random() * 5}s`;
+            
+            // Random opacity
+            particle.style.opacity = Math.random() * 0.6 + 0.2;
+            
+            particlesContainer.appendChild(particle);
+            
+            // Remove particle after animation completes
+            setTimeout(() => {
+                particle.remove();
+            }, duration * 1000);
+        };
+
+        // Create initial particles
+        for (let i = 0; i < 20; i++) {
+            createParticle();
+        }
+        
+        // Continue creating particles periodically
+        setInterval(createParticle, 1000);
+
+        // Skill badge interaction
+        document.querySelectorAll('.skill-badge').forEach(badge => {
+            badge.addEventListener('click', () => {
+                const skill = badge.textContent.trim();
+                badge.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    badge.style.transform = '';
+                }, 200);
+            });
+        });
+
+        // Interactive hero particles
+const heroParticlesContainer = document.getElementById('hero-particles');
+let mouseX = 0;
+let mouseY = 0;
+let particles = [];
+let lastMouseX = 0;
+let lastMouseY = 0;
+let mouseVelocityX = 0;
+let mouseVelocityY = 0;
+
+const createHeroParticle = (e) => {
+    const particle = document.createElement('div');
+    particle.classList.add('hero-particle');
+    
+    // Size between 5px and 12px (larger particles)
+    const size = Math.random() * 7 + 5;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    
+    // Position at mouse or random
+    if (e) {
+        const rect = heroParticlesContainer.getBoundingClientRect();
+        mouseX = e.clientX - rect.left;
+        mouseY = e.clientY - rect.top;
+        particle.style.left = `${mouseX}px`;
+        particle.style.top = `${mouseY}px`;
+        
+        // Add velocity based on mouse movement
+        particle.speedX = mouseVelocityX * 0.5;
+        particle.speedY = mouseVelocityY * 0.5;
+    } else {
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.speedX = (Math.random() - 0.5) * 2;
+        particle.speedY = (Math.random() - 0.5) * 2;
+    }
+    
+    // Random animation duration between 3s and 7s
+    const duration = Math.random() * 4 + 3;
+    particle.style.animationDuration = `${duration}s`;
+    
+    // Random delay for staggered animation
+    particle.style.animationDelay = `${Math.random() * 2}s`;
+    
+    // Add particle to array for tracking
+    particles.push({
+        element: particle,
+        x: parseFloat(particle.style.left),
+        y: parseFloat(particle.style.top),
+        speedX: particle.speedX || (Math.random() - 0.5) * 2,
+        speedY: particle.speedY || (Math.random() - 0.5) * 2,
+        rotation: Math.random() * 360,
+        rotationSpeed: (Math.random() - 0.5) * 4
+    });
+    
+    heroParticlesContainer.appendChild(particle);
+    
+    // Remove after animation completes
+    setTimeout(() => {
+        const index = particles.findIndex(p => p.element === particle);
+        if (index > -1) {
+            particles.splice(index, 1);
+        }
+        particle.remove();
+    }, duration * 1000);
+};
+
+// Create initial particles
+for (let i = 0; i < 70; i++) { // Increased initial count
+    createHeroParticle();
+}
+
+// Enhanced mouse move interaction
+heroParticlesContainer.addEventListener('mousemove', (e) => {
+    const rect = heroParticlesContainer.getBoundingClientRect();
+    lastMouseX = mouseX;
+    lastMouseY = mouseY;
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+    
+    // Calculate mouse velocity
+    mouseVelocityX = mouseX - lastMouseX;
+    mouseVelocityY = mouseY - lastMouseY;
+    
+    // Create particles more frequently on mouse move
+    if (Math.random() > 0.2) { // 80% chance
+        createHeroParticle(e);
+    }
+    
+    // Attract nearby particles to mouse
+    particles.forEach(particle => {
+        const dx = mouseX - particle.x;
+        const dy = mouseY - particle.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance < 150) { // Increased attraction radius
+            const force = (150 - distance) / 150;
+            particle.speedX += dx * force * 0.03;
+            particle.speedY += dy * force * 0.03;
+            
+            // Add rotation based on mouse movement
+            particle.rotationSpeed += (mouseVelocityX + mouseVelocityY) * 0.01;
+        }
+    });
+});
+
+// Particle movement animation
+function updateParticles() {
+    particles.forEach(particle => {
+        // Update position
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+        
+        // Update rotation
+        particle.rotation += particle.rotationSpeed;
+        
+        // Bounce off edges with dampening
+        if (particle.x < 0 || particle.x > 100) {
+            particle.speedX *= -0.8;
+            particle.x = Math.max(0, Math.min(100, particle.x));
+        }
+        if (particle.y < 0 || particle.y > 100) {
+            particle.speedY *= -0.8;
+            particle.y = Math.max(0, Math.min(100, particle.y));
+        }
+        
+        // Apply friction
+        particle.speedX *= 0.98;
+        particle.speedY *= 0.98;
+        particle.rotationSpeed *= 0.98;
+        
+        // Update element
+        particle.element.style.left = `${particle.x}%`;
+        particle.element.style.top = `${particle.y}%`;
+        particle.element.style.transform = `rotate(${particle.rotation}deg)`;
+    });
+    
+    requestAnimationFrame(updateParticles);
+}
+
+// Start particle animation
+updateParticles();
+
+// Continue creating random particles
+setInterval(() => {
+    if (Math.random() > 0.1) { // 90% chance
+        createHeroParticle();
+    }
+}, 150); // Reduced interval for more frequent particles
+
+        // Form submission handling (placeholder)
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
+            });
+        }
+
+        // Add scroll-based animations
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.card, .skill-badge, .timeline-item');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                
+                if (elementTop < window.innerHeight && elementBottom > 0) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Initialize scroll animations
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll();
+
+        // Add hover effect to skill badges
+        document.querySelectorAll('.skill-badge').forEach(badge => {
+            badge.addEventListener('mouseover', () => {
+                badge.style.transform = 'translateY(-5px) scale(1.05)';
+            });
+            
+            badge.addEventListener('mouseout', () => {
+                badge.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add parallax effect to section backgrounds
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section');
+            
+            sections.forEach(section => {
+                const speed = 0.5;
+                const rect = section.getBoundingClientRect();
+                const scroll = window.pageYOffset;
+                
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    section.style.backgroundPosition = `center ${scroll * speed}px`;
+                }
+            });
+        });
+
+        // Add smooth reveal animation to cards
+        document.querySelectorAll('.card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // Add hover effect to timeline items
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.addEventListener('mouseover', () => {
+                item.style.transform = 'translateX(10px)';
+            });
+            
+            item.addEventListener('mouseout', () => {
+                item.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Add focus effect to form inputs
+        document.querySelectorAll('.form-input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.style.transform = 'scale(1.02)';
+            });
+            
+            input.addEventListener('blur', () => {
+                input.parentElement.style.transform = 'scale(1)';
+            });
+        });
+    </script>
 </body>
-</html> 
+</html>
