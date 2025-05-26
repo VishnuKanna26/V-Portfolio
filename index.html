@@ -889,6 +889,74 @@
         </div>
     </section>
 
+    <!-- Video Resume Section -->
+    <section id="video-resume" class="section py-20 relative">
+        <div class="max-w-7xl mx-auto px-6 reveal">
+            <h2 class="text-4xl font-bold text-center mb-16 text-white section-title">
+                Video Resume
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Video Player -->
+                <div class="relative group">
+                    <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-[1.02] bg-gray-900">
+                        <video 
+                            id="videoPlayer"
+                            class="w-full h-full object-cover"
+                            controls
+                            autoplay="false"
+                            preload="auto">
+                            <source src="images/video resume.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold text-white">
+                        <span class="text-blue-400">Watch</span> My Introduction
+                    </h3>
+                    
+                    <p class="text-gray-300">
+                        Get to know me better through this video introduction. I shared my journey, skills, and passion for data science and technology.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-blue-500 bg-opacity-20 flex items-center justify-center text-blue-400 mr-4">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium">Duration</h4>
+                                <p class="text-gray-400">1-2 minutes</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-green-500 bg-opacity-20 flex items-center justify-center text-green-400 mr-4">
+                                <i class="fas fa-closed-captioning"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium">Subtitles</h4>
+                                <p class="text-gray-400">Available in English</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4 mt-8">
+                        <a href="images/video resume.mp4" download class="btn-glow text-white px-6 py-3 rounded-full font-semibold inline-flex items-center">
+                            <i class="fas fa-download mr-2"></i> Download Video
+                        </a>
+                        <a href="#contact" class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-full font-semibold inline-flex items-center transition-all duration-300">
+                            <i class="fas fa-paper-plane mr-2"></i> Contact Me
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="section py-20 relative">
         <div class="max-w-7xl mx-auto px-6 reveal">
