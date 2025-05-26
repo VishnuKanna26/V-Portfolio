@@ -734,6 +734,28 @@
         body.light-theme .text-indigo-400 {
             color: #4F46E5 !important;
         }
+
+        /* Add these new styles for the resume download button */
+        .bg-green-600 {
+            background: linear-gradient(45deg, #059669, #10b981);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+        
+        .bg-green-600:hover {
+            background: linear-gradient(45deg, #047857, #059669);
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        body.light-theme .bg-green-600 {
+            background: linear-gradient(45deg, #059669, #10b981);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+        }
+        
+        body.light-theme .bg-green-600:hover {
+            background: linear-gradient(45deg, #047857, #059669);
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -789,16 +811,19 @@
             <h1 class="hero-title text-4xl md:text-6xl font-bold mb-4 text-white">
                 Vishnu Vardhan Kanna
             </h1>
-            <p class="hero-subtitle text-xl md:text-2xl mb-8 text-gray-200">
-                Data Science Specialist | Python Developer | AI Enthusiast
+            <p class="hero-subtitle text-2xl md:text-2xl mb-8 text-gray-200">
+                Aspiring Data Analyst | AI & ML Enthusiast
             </p>
-            
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="#projects" class="btn-glow text-white px-8 py-3 rounded-full font-semibold inline-flex items-center">
                     <i class="fas fa-laptop-code mr-2"></i> View My Work
                 </a>
                 <a href="#contact" class="bg-gray-800 hover:bg-gray-700 text-white px-8 py-3 rounded-full font-semibold inline-flex items-center transition-all duration-300">
                     <i class="fas fa-paper-plane mr-2"></i> Contact Me
+                </a>
+                <a href="images/RESUME 22-05-2025.pdf" download class="bg-green-600 hover:bg-green-500 text-white px-8 py-3 rounded-full font-semibold inline-flex items-center transition-all duration-300 group">
+                    <i class="fas fa-download mr-2"></i> Download Resume
+                    <span class="ml-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">PDF</span>
                 </a>
             </div>
             
@@ -855,14 +880,14 @@
                                 <i class="fas fa-project-diagram"></i>
                             </div>
                             <h4 class="font-semibold text-white">Projects</h4>
-                            <p class="text-sm text-gray-400">10+ Completed</p>
+                            <p class="text-sm text-gray-400">2+ Completed</p>
                         </div>
                         <div class="bg-gray-800 p-4 rounded-lg text-center">
                             <div class="text-blue-400 text-2xl mb-2">
                                 <i class="fas fa-code"></i>
                             </div>
                             <h4 class="font-semibold text-white">Experience</h4>
-                            <p class="text-sm text-gray-400">2+ Years</p>
+                            <p class="text-sm text-gray-400">0 Years</p>
                         </div>
                         <div class="bg-gray-800 p-4 rounded-lg text-center">
                             <div class="text-blue-400 text-2xl mb-2">
@@ -879,12 +904,12 @@
 
     <!-- Skills Section -->
     <section id="skills" class="section py-20 bg-gray-900 relative">
-        <div class="max-w-7xl mx-auto px-6 reveal">
+        <div class="max-w-6xl mx-auto px-6 reveal">
             <h2 class="text-4xl font-bold text-center mb-16 text-white section-title">
                 My Skills
             </h2>
             
-            <div class="max-w-4xl mx-auto">
+            <div class="max-w-5xl mx-auto">
                 <!-- Technical Skills -->
                 <div class="mb-16">
                     <h3 class="text-2xl font-semibold mb-8 text-white flex items-center">
@@ -1062,10 +1087,10 @@
                         <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Python</span>
                     </div>
                     <div class="flex justify-between items-center">
-                        <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center">
+                        <a href="https://github.com/Vishnukanna26/ProdWell-Analytics" target="_blank" class="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center">
                             View Project <i class="fas fa-arrow-right ml-1"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-white">
+                        <a href="https://github.com/Vishnukanna26/ProdWell-Analytics" target="_blank" class="text-gray-400 hover:text-white">
                             <i class="fab fa-github"></i>
                         </a>
                     </div>
@@ -1090,10 +1115,10 @@
                         <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Streamlit</span>
                     </div>
                     <div class="flex justify-between items-center">
-                        <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center">
+                        <a href="https://github.com/Vishnukanna26/EmojifyMe-NLP" target="_blank" class="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center">
                             View Project <i class="fas fa-arrow-right ml-1"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-white">
+                        <a href="https://github.com/Vishnukanna26/EmojifyMe-NLP" target="_blank" class="text-gray-400 hover:text-white">
                             <i class="fab fa-github"></i>
                         </a>
                     </div>
@@ -1118,10 +1143,10 @@
                         <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">SQL</span>
                     </div>
                     <div class="flex justify-between items-center">
-                        <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center">
+                        <a href="https://github.com/Vishnukanna26/Interactive-DataViz" target="_blank" class="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center">
                             View Project <i class="fas fa-arrow-right ml-1"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-white">
+                        <a href="https://github.com/Vishnukanna26/Interactive-DataViz" target="_blank" class="text-gray-400 hover:text-white">
                             <i class="fab fa-github"></i>
                         </a>
                     </div>
@@ -1129,7 +1154,7 @@
             </div>
             
             <div class="text-center mt-12">
-                <a href="#" class="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium">
+                <a href="https://github.com/Vishnukanna26?tab=repositories" target="_blank" class="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium">
                     View All Projects <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
@@ -1138,12 +1163,12 @@
 
     <!-- Education Section -->
     <section id="education" class="section py-20 bg-gray-900 relative">
-        <div class="max-w-7xl mx-auto px-6 reveal">
+        <div class="max-w-6xl mx-auto px-6 reveal">
             <h2 class="text-4xl font-bold text-center mb-16 text-white section-title">
                 Education
             </h2>
             
-            <div class="max-w-3xl mx-auto">
+            <div class="max-w-5xl mx-auto">
                 <!-- Education Timeline -->
                 <div class="space-y-8">
                     <!-- Current Education -->
@@ -1205,25 +1230,108 @@
                     </h3>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="card p-6 flex items-start">
+                        <div class="card p-6 flex items-start hover:transform hover:scale-[1.02] transition-all duration-300">
                             <div class="flex-shrink-0 bg-purple-500 bg-opacity-20 p-3 rounded-lg mr-4">
-                                <i class="fas fa-laptop-code text-purple-400"></i>
+                                <i class="fas fa-award text-purple-400"></i>
                             </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-white">Data Science Professional Certificate</h4>
-                                <p class="text-gray-400">Coursera | 2023</p>
-                                <p class="text-gray-300 mt-2">Completed comprehensive training in Python, Machine Learning, and Data Visualization.</p>
+                            <div class="flex-grow">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-white">NPTEL Python Certification</h4>
+                                        <p class="text-gray-400">IIT Madras | 2023</p>
+                                    </div>
+                                    <span class="bg-purple-500 bg-opacity-20 text-purple-400 px-3 py-1 rounded-full text-sm">Elite + Topper</span>
+                                </div>
+                                <p class="text-gray-300 mt-2">Advanced Python programming with focus on data structures and algorithms</p>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Python</span>
+                                    <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Data Structures</span>
+                                    <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Algorithms</span>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="card p-6 flex items-start">
+                        <div class="card p-6 flex items-start hover:transform hover:scale-[1.02] transition-all duration-300">
                             <div class="flex-shrink-0 bg-yellow-500 bg-opacity-20 p-3 rounded-lg mr-4">
-                                <i class="fas fa-chart-line text-yellow-400"></i>
+                                <i class="fas fa-language text-yellow-400"></i>
                             </div>
-                            <div>
-                                <h4 class="text-lg font-semibold text-white">Tableau Data Analyst</h4>
-                                <p class="text-gray-400">Tableau | 2022</p>
-                                <p class="text-gray-300 mt-2">Certified in creating interactive dashboards and advanced data visualizations.</p>
+                            <div class="flex-grow">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-white">EF SET English Certificate</h4>
+                                        <p class="text-gray-400">EF SET | 2023</p>
+                                    </div>
+                                    <span class="bg-yellow-500 bg-opacity-20 text-yellow-400 px-3 py-1 rounded-full text-sm">C1 Advanced</span>
+                                </div>
+                                <p class="text-gray-300 mt-2">Comprehensive English proficiency assessment with focus on reading and listening</p>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Reading</span>
+                                    <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Listening</span>
+                                    <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Advanced Level</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card p-6 flex items-start hover:transform hover:scale-[1.02] transition-all duration-300">
+                            <div class="flex-shrink-0 bg-blue-500 bg-opacity-20 p-3 rounded-lg mr-4">
+                                <i class="fas fa-graduation-cap text-blue-400"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-white">NPTEL English for Competitive Exams</h4>
+                                        <p class="text-gray-400">IIT Madras | 2023</p>
+                                    </div>
+                                    <span class="bg-blue-500 bg-opacity-20 text-blue-400 px-3 py-1 rounded-full text-sm">Elite</span>
+                                </div>
+                                <p class="text-gray-300 mt-2">Specialized training in English for competitive examinations and professional communication</p>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Communication</span>
+                                    <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Exam Prep</span>
+                                    <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Professional English</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card p-6 flex items-start hover:transform hover:scale-[1.02] transition-all duration-300">
+                            <div class="flex-shrink-0 bg-green-500 bg-opacity-20 p-3 rounded-lg mr-4">
+                                <i class="fas fa-robot text-green-400"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-white">ChatGPT and AI in Microsoft Excel</h4>
+                                        <p class="text-gray-400">Skill Nation | 2023</p>
+                                    </div>
+                                    <span class="bg-green-500 bg-opacity-20 text-green-400 px-3 py-1 rounded-full text-sm">AI Integration</span>
+                                </div>
+                                <p class="text-gray-300 mt-2">Mastered AI-powered Excel automation and data analysis techniques</p>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Excel</span>
+                                    <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">ChatGPT</span>
+                                    <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Automation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card p-6 flex items-start hover:transform hover:scale-[1.02] transition-all duration-300">
+                            <div class="flex-shrink-0 bg-red-500 bg-opacity-20 p-3 rounded-lg mr-4">
+                                <i class="fas fa-database text-red-400"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-white">Infosys Springboard DBMS Certification</h4>
+                                        <p class="text-gray-400">Infosys | 2023</p>
+                                    </div>
+                                    <span class="bg-red-500 bg-opacity-20 text-red-400 px-3 py-1 rounded-full text-sm">Professional</span>
+                                </div>
+                                <p class="text-gray-300 mt-2">Comprehensive training in database design, management, and optimization</p>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">SQL</span>
+                                    <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Database Design</span>
+                                    <span class="text-xs bg-gray-800 text-blue-400 px-2 py-1 rounded">Data Modeling</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1276,7 +1384,7 @@
                             </div>
                             <div>
                                 <h4 class="text-white font-medium">LinkedIn</h4>
-                                <a href="https://linkedin.com/in/kanna-vishnu-vardhan" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors">linkedin.com/in/kanna-vishnu-vardhan</a>
+                                <a href="https://www.linkedin.com/in/kanna-vishnu-vardhan-4a2394259/" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors">linkedin.com/in/kanna-vishnu-vardhan</a>
                             </div>
                         </div>
                         
@@ -1353,10 +1461,11 @@
             </div>
             
             <div class="flex justify-center space-x-6 mb-8">
-                <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                
+                <a href="https://www.linkedin.com/in/kanna-vishnu-vardhan-4a2394259/" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors">
                     <i class="fab fa-linkedin-in text-xl"></i>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-gray-300 transition-colors">
+                <a href="https://github.com/Vishnukanna26" target="_blank" class="text-gray-400 hover:text-gray-300 transition-colors">
                     <i class="fab fa-github text-xl"></i>
                 </a>
                 <a href="#" class="text-gray-400 hover:text-pink-400 transition-colors">
